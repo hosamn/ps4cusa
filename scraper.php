@@ -8,7 +8,7 @@ if(isset($_SERVER["HTTP_REFERER"])){
 }else{
 	$get_flag = false;
 }
-//$get_flag = true;
+$get_flag = true;
 
 if(isset($_GET["url"]) && preg_match("/^https?:/",$_GET["url"]) && $get_flag){
 	$url = $_GET["url"];
