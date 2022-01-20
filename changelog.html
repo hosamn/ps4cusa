@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Changelog - PlayStation Title Info Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="readme">
+
+<div class="section">
+<br>
+<a href="./">http://kood.info/pstic/</a><br>
+<a href="readme.html">http://kood.info/pstic/readme.html</a>
+</div>
+
+<div class="section">
+<h4>### Changelog ###</h4>
+<div class="break-all">
+v1.5.2 - 2021/05/26<ul>
+<li>PS3タイトルのTmdb Checkでメディアタイプの文字列をそのまま出力するように。<br>
+(これまではdiscなら"BD"、ediなら"Digital"と出力していた。)</li>
+<li>PS4タイトルのTmdb CheckでのPronunciationの表示に関する調整。</li>
+<li>PS4タイトルのUpdate Checkでのピース番号の表示に関する調整。</li>
+<li>PS4タイトルのUpdate Checkでのchangeinfo.xmlの内容取得でブラウザによっては改行が反映されなかった問題の修正。</li>
+<li>タイトルIDを用いたcontainerのURLでChihiro Checkを行った場合のtop_categoryの判定に関する調整。<br>
+(applicationの製品の情報も取得するように。これまではゲーム以外は弾いていた。)</li>
+<li>Chihiro Checkでaugmented_descriptionが存在する場合は説明文に結合して出力するように。</li>
+<li>スクレイピングで使用するユーザーエージェントを更新。</li>
+<li>ps3_psp_psv_tid_cid.jsonを更新。</li>
+</ul>
+v1.5.1 - 2021/04/30<ul>
+    <li>PS1/PS2のゲームデータ等で使用される XXXX_YYY.YY 形式のタイトルIDの入力をサポート。</li>
+    <li>PS3タイトルのUpdate CheckでPARAM.HIPの内容をダイアログで表示するように。</li>
+    <li>PS4/PSVitaタイトルのUpdate Checkでchangeinfo.xmlの内容をダイアログで表示するように。</li>
+    <li>Rights/Type Check(NPxxのタイトルIDの識別)を調整。(Rights/Typeの情報を更新。)</li>
+    <li>Chihiro Checkでのコンテンツの種別(Content Type)の取得を調整。<br>
+        (game_contentTypeが取得出来なかった場合に、secondary_classificationを取得するように。)</li>
+    <li>Chihiro CheckでタイトルIDでcontainerのURLを作成した場合に、リンクの隣に国コード/言語コードが表示されていなかったのを修正。</li>
+    <li>PSXDatacenter Checkに使用するjsonの構造を変更。</li>
+</ul>
+v1.5.0 - 2021/04/24<ul>
+    <li>PS5のタイトルIDによるUpdate Checkをサポート。(xmlのURLは以下のTSVを参照しています。)<br>
+    <a href="https://raw.githubusercontent.com/1jtp8sobiu/ps5-pkg/master/PS5_XML.tsv" target="_blank">https://raw.githubusercontent.com/1jtp8sobiu/ps5-pkg/master/PS5_XML.tsv</a></li>
+    <li>PS5のタイトルIDとコンテンツIDによるChihiro Checkをサポート。</li>
+    <li>Tid Cid Checkに使用するjsonの内容/構造を変更。コンテンツIDを取得出来る確率が少し向上。</li>
+    <li>コードのセレクトボックスが"default"かつChihiro Check直前までにリージョンが判別出来ていない場合に、ブラウザの言語設定が日本語であればリージョンを日本と見做すように。<br>
+    (ブラウザの言語設定が日本語でなければこれまで通りUSと見做す。)</li>
+    <li>Chihiro Checkでlegal_textを取得し、説明文(long_desc)に結合して出力するように。</li>
+    <li>Chihiro Checkで製品ページのリンクにパラメータ"?smcid=psapp"を付与しないように。<br>
+    (2021年3月にPSストアがそのパラメータのサポートを停止したため。)</li>
+    <li>Chihiro Checkで関連製品のリンク(1?relationship=)は取得/表示しないように。</li>
+    <li>PS3/PSP/PSVitaタイトルにおいてTumbler SearchでコンテンツIDが見つからなかった場合に、タイトルIDを用いたChihiroのURLを作成、データを取得し、コンテンツIDを検索するように。</li>
+    <li>Redump CheckのURLの切り替え表示の分母が、URLがいくつあっても2にしかならなかったのを修正。</li>
+    <li>ダイアログのリンクのテキストを "Click here (Dialog)" に変更。</li>
+</ul>
+</div>
+v1.4.5 - 2021/03/28<ul>
+<li>PSXDatacenter Checkをデフォで有効に。</li>
+<li>Redump Checkで同じタイトルIDのページが複数存在する場合に、切り替えられるように。<br>
+(複数存在する場合、これまでは最初の1つの情報のみ取得していた)</li>
+<li>OfficialPage/GameFAQs CheckのGoogle検索が機能しなくなっていたのを修正。</li>
+</ul>
+v1.4.4 - 2021/03/24<ul>
+<li>Chihiro Checkで関連製品の情報を21個以上取得するためにURLにsizeパラメータを付与。<br>
+(デフォだと最大で20個しかlinksに格納されないため。とりあえずsize=999を付与)</li>
+<li>関連製品が存在する場合でも関連製品のダイアログが作成/表示されない事がある問題の修正。</li>
+<li>関連製品のダイアログに各製品のリンク及び価格を含めるように。</li>
+</ul>
+v1.4.3 - 2020/10/31<ul>
+<li>PS4のタイトルIDからPS5との互換性情報を取得/表示するPS5BC Checkを追加。</li>
+<li>Chihiro Checkで出力する製品ページのリンクにパラメータ"?smcid=psapp"を付与。<br>
+(これにより旧ストアのリンクとなる。このパラメータがいつまで有効かは不明)</li>
+</ul>
+v1.4.2 - 2020/10/29<ul>
+<li>Chihiro Check開始時のコンソール識別コードを微調整。</li>
+<li>OfficialPage Checkで404のページを取得したにも関わらず成功判定となっていたのを修正。<br>
+(これまで404の判定に使用していたテキストが変わっていたため成功判定となっていた)</li>
+</ul>
+v1.4.1 - 2020/10/28<ul>
+<li>Chihiro Checkにlinks(関連製品)の情報取得を追加。ID/名前/種別をまとめたダイアログを出力するように。<br>
+(ダイアログの名称は"Relation Items")</li>
+<li>Store Checkで更に多くの画像を取得出来るように。<br>
+(pdp-background-imageのConceptからも画像を取得するように)</li>
+<li>Store CheckのCompatibility Noticeの取得を微調整。</li>
+</ul>
+v1.4.0 - 2020/10/28<ul>
+<li>新PS Storeからの情報取得をサポート。(Store Check)<br>
+新PS StoreのAPIはタイトルIDをサポートしていないように見えるので、コンテンツIDを使用。<br>
+PS5の製品以外はPS Storeのチェックボックスを"Page"に変更する事で実行可能。</li>
+<li>新PS StoreのAPIの仕様がChecker向きではなさそうなので、製品ページのhtmlからjsonを抽出するproduct.phpを追加。<br>
+Store Checkでは新PS StoreのAPIを使用せずこれを使用する。<br>
+10/28時点では、kood.infoで使用しているスターサーバーが旧PS Storeのhtmlを取得する事があり、その場合はエラーを出力。<br>
+旧PS Storeのhtmlが取得された場合、新PS Storeのhtmlを取得すべく最大5回取得を繰り返し。</li>
+<li>ChihiroにmediaListとpromomediaの両方が存在する場合は両方から動画/画像のURLを取得するように変更。</li>
+</ul>
+v1.3.4 - 2020/10/10<ul>
+<li>PS5のタイトルID(PPSA/ECxx/ELxx)をサポート。現時点では識別のみ。</li>
+<li>LDTL(PS2)/UMDT(PSP)/UTST(PSP)を適切に識別するように。</li>
+<li>OfficialPage/GameFAQs CheckのGoogle検索が機能しなくなっていたのを修正。</li>
+<li>Redump Checkでバイト単位のサイズと合わせてMB或いはGB単位のサイズも表示するように。</li>
+</ul>
+v1.3.3 - 2020/08/05<ul>
+<li>Chihiro Checkに音声言語と字幕言語の情報取得を追加。</li>
+</ul>
+v1.3.2 - 2020/06/04<ul>
+<li>Chihiro Checkにskusの情報取得を追加。skusに複数登録されている場合、Non default skuとして出力。</li>
+</ul>
+v1.3.1 - 2020/06/03<ul>
+<li>Eligibilitiesのダイアログ内からChihiro Checkを実行した場合に正常に実行されない事がある問題の緩和。</li>
+<li>v1.3.0の書き直しでレガシーなブラウザとの互換性が失われたため、互換性向上のために変数の宣言にletを使用しないように。</li>
+<li>Array.fromのPolyfillを実装。(IEでTumbler Searchの検索条件の準備が出来ない問題の修正)</li>
+</ul>
+v1.3.0 - 2020/05/22<ul>
+<li>コードを全体的に書き直し。</li>
+<li>適切なタイミングでのみ入力の無効化/有効化を行うように。</li>
+<li>取得したコンテンツIDを配列で管理するように。(これまでは直近に取得したコンテンツIDを使用していた)</li>
+<li>タイトル名を複数取得した場合のタイトル名切り替えアイコンをタイトル名の左側に表示するように。</li>
+<li>SLUSのPS1/PS2タイトルでTmdb Checkを行うように。</li>
+<li>OfficialPage/GameFAQs CheckでGoogle検索に失敗した場合はYahoo検索を行うように。</li>
+<li>リージョンが日本以外の場合もGameFAQs Checkを行うように。(VCKSやVCASをサポート)</li>
+<li>OfficialPage Checkの説明文部分の背景色が黒の場合は白に変更するように。</li>
+<li>ダイアログを開いた際にダイアログのスクロール位置が一番上にならない事がある問題の修正。</li>
+<li>ハード/メディアが判別出来ないタイトルIDでOfficialPage Check,Chihiro Check,Redump Checkを行うように。</li>
+<li>Tid Cid Check(tid_cid.jsonのチェック)をサーバー側で行うように。</li>
+<li>Chihiro Checkでプラットフォーム情報の取得/表示を追加。</li>
+<li>Valkyrie Checkの名前をTumbler Searchに変更。</li>
+<li>Tumbler Searchのヒット率向上。</li>
+<li>PSXDatacenterからPS1/PS2タイトルの情報を取得するPSXDatacenter Checkを追加(デフォでは無効)。</li>
+<li>いくつかのダイアログの横幅を調整。</li>
+</ul>
+v1.2.0 - 2020/04/13<ul>
+<li>ソニーのゲーム紹介ページからPS1/PS2/PS3/PSP/PSVitaタイトルの情報を取得するOfficialPage Checkを追加。<br>
+(Region Checkで日本のタイトルと判定された場合のみ実行)<br>
+(デフォルトではPS1/PS2タイトルでのチェックのみ有効。PS3/PSP/PSVitaタイトルでチェックする場合は設定変更)</li>
+<li>RedumpからPS1/PS2/PSPタイトルの情報を取得するRedump Checkを追加。</li>
+<li>PS4/PSVitaのパッケージのタイトルIDから実際のタイトルIDを探すOfficialPage/GameFAQs Checkを追加。<br>
+(日本のパッケージ(PCJS/PLJM/VCJS/VLJS/VLJM)のみサポート<br>
+(APIを叩いているわけではないので、429エラーが返って来て失敗する可能性が高い)</li>
+<li>PS3/PS1アーカイブス/PSP/PSVitaのタイトルID-コンテンツIDを対応付けたjsonを用意。(NPSのtsvから必要な項目を拝借)<br>
+(コンテンツID無しでChihiro Checkをしようとした場合やValkyrie Checkに失敗した場合等に使用)</li>
+<li>Type CheckでNPEJのタイトルを"Third Party PS3"として扱うように。</li>
+<li>Chihiroから取得したコンテンツIDは必ず表示するように変更。</li>
+<li>ChihiroにmediaListとpromomediaの両方が存在する場合は後者を表示するように変更。</li>
+<li>初回チェック終了後に表示されるボタンの名前をDeleteからResetに変更。</li>
+<li>URLのパラメータ"key"を"id"に変更</li>
+</ul>
+v1.1.0 - 2020/04/04<ul>
+<li>URLで指定したハード(psp/ps3/vita/ps4)のタイトルとしてUpdateとTmdbのURLの導出だけを行うManual modeを追加。</li>
+<li>PS4タイトルでValkyrie CheckによってコンテンツIDが取得されてもcontainerではなくtitlecontainerのURLが作成される問題の修正。</li>
+<li>ChihiroからのPSVitaタイトルのスクショ取得の改善。(typeが132のスクショのURLを取得しないように)</li>
+<li>コンテンツIDのRegion CheckにKoreaを追加。</li>
+</ul>
+v1.0.9 - 2020/03/29<ul>
+<li>"Char 0x0 out of allowed range" エラーが発生するxml(NPEB00900のTmdb)に対応。</li>
+<li>PS3タイトルのTmdbでアイコンが複数ある場合にアイコンが表示されなかったのを修正。</li>
+</ul>
+v1.0.8 - 2020/02/02<ul>
+<li>Chihiro Checkにparent_linksの情報取得を追加。(親のタイトル名、製品ページのリンク)</li>
+</ul>
+v1.0.7 - 2020/01/21<ul>
+<li>NPXS3xxxxをPS4タイトルとして扱うように。<br>
+(NPXS30020、NPXS30031、NPXS30069、NPXS30070 等の更新データが存在)</li>
+<li>Valkyrie Checkでループする可能性があるのを修正。</li>
+<li>Valkyrie Checkで不適切なURLが生成される事があるのを修正。</li>
+<li>Valkyrie CheckでコンテンツIDの後ろの16文字のチェックとタイトルの完全一致チェックの順番を逆に。(後者を先に行うように)</li>
+</ul>
+v1.0.6 - 2020/01/12<ul>
+<li>xmlやjsonがエラー(404)ではなく空ページを返す場合にエラーとして扱うよう修正。</li>
+<li>PS4タイトルのTmdb Checkでpronunciation.xmlはリンクの表示ではなく情報を取得してダイアログにするように変更。</li>
+</ul>
+v1.0.5 - 2019/12/13<ul>
+<li>チェックが完了するまでテキストボックス/チェックボックス/セレクトボックスの変更を受け付けないように。</li>
+<li>Tmdb CheckとUpdate Checkのタイトル名の取得を書き直し。</li>
+<li>PSP minisのタイトルIDでTmdb Checkが行われるように修正。</li>
+<li>PSVita、PS4のUpdate Checkで要求FWの小数点第三位が四捨五入されていたのを修正。</li>
+<li>Tmdbのチェックボックスにチェックを入れた際にタイトルIDが変数に入っていてかつそのタイトルIDがPS3或いはPS4だと判別されていれば<br>
+Tmdb Checkを行うように。</li>
+<li>Updateのチェックボックスにチェックを入れた際にタイトルIDが変数に入っていてかつそのタイトルIDがPSP、PSVita、PS3、PS4の何れか<br>
+だと判別されていればUpdate Checkを行うように。</li>
+<li>Chihiroのチェックボックスにチェックを入れた際にPS4のタイトルIDが変数に入っているか、コンテンツIDが変数に入っているか、タイトルIDと<br>タイトル名が変数に入っているかの何れかであれば、Chihiro Checkを行うように。<br>
+(これに伴いChihiroのチェックボックスのチェックを外した場合にセレクトボックスを非表示にしていたのを撤廃)</li>
+<li>Chihiro Checkにeligibilities(その製品を購入/DLするために必要なタイトル？)の情報取得を追加。(ダイアログ)</li>
+<li>Chihiro Checkにentitlementsの情報取得を追加。(中に複数個登録されている場合のみ)(ダイアログ)<br>
+(おそらく、その製品を購入する事で得られるタイトルのリスト。通常中身は1つで、セット/バンドルの場合に複数個登録されている)</li>
+<li>Chihiro Checkでrewards(割引やプラス限定等の情報のリスト)から取得した情報はダイアログにするように変更。</li>
+<li>初回のチェック終了以降、グローバル変数のリセットと表示された情報の削除を行うDeleteボタンを表示するように。<br>
+(チェックボックスとセレクトボックスを変更してから別のID、URLでチェックしたい時向け)</li>
+</ul>
+v1.0.4 - 2019/12/10<ul>
+<li>PSP、PSVita、PS3のUpdate CheckでPKGのサイズをリンクの隣に表示するように変更。</li>
+<li>Tmdb CheckとUpdate Checkで各言語のタイトル名を取得した場合はそれらを表示出来るように。<br>
+(タイトル名の隣に表示を切り替える矢印アイコンを表示)</li>
+<li>PS3タイトルのTmdb Checkで各リージョンのペアレンタルレベル値を取得した場合はそれらを表示出来るように。<br>
+(ペアレンタルレベルの隣に表示を切り替える矢印アイコンを表示)</li>
+<li>製品画像をサイズが大きい順に表示するように。(typeの値の降順に表示し、type1をtype9の前に移動)<br>
+(サイズの取得を行わずtypeで判断するため、タイトルによってはサイズ順にならない事があるかも(未確認))</li>
+<li>製品に動画/スクショが存在する場合は項目名をVideo/Screenshot、動画のみの場合はVideo、スクショのみの場合はScreenshotとするように。</li>
+<li>Valkyrie Checkの書き直し。</li>
+<li>Lazy Loadが動作しない事がある問題の対処。(ダイアログのスクロールでもLazy Loadを実行するように)</li>
+</ul>
+v1.0.3 - 2019/12/08<ul>
+<li>どのような画像のURLを取得した場合でも、画像閲覧用ダイアログを開くリンクを表示するように。<br>
+(これに伴いTmdb(PS4)の各言語のアイコン、Chihiroの各Typeの製品画像の取得に対応)<br>
+(v1.0.2まではChihiroのVideos/Screenshotsでのみ採用しており、他は単に画像のリンクを表示していた)</li>
+<li>ChihiroからのPSVitaタイトルのスクショ取得の改善。</li>
+</ul>
+v1.0.2 - 2019/12/04
+<ul>
+<li>Valkyrie Check速度向上のためにvalkyrie-apiのfaceted-searchではなくtumbler-searchを使用するように。<br>
+(検索結果としてゲーム本編だけが取得出来るためjsonが小さくなりかつtypeの確認をしなくても済むように)</li>
+<li>セレクトボックスに国/言語コードを6つ追加。 (de/de, au/en, gb/en, es/es, fr/fr/, it/it)</li>
+<li>Update CheckでPARAM_xx.HIPやChangeInfo_xxが見つかった場合、それらのリンクをまとめたダイアログを開くリンクを表示するように。</li>
+<li>MRTC*****形式のタイトルID(PS3)のチェックに対応。</li>
+<li>PS Video(NPMA/NPVA/NPVB)のチェックに対応。(コンテンツIDかURLを入力した場合のみRegion CheckとChihiro Checkを実行)<br>
+(PS VideoのChihiroの内容の理解が浅いため、情報表示は不完全)</li>
+</ul>
+v1.0.1 - 2019/12/02</a>
+<ul>
+<li>ChihiroからPSVitaタイトルのスクショを取得した場合に、同じ物が表示されるタイトルがある問題に対処。</li>
+<li>Tmdb CheckとUpdate Checkで取得したタイトル名が異なる場合かつValkyrie Checkが失敗した場合、Update側のタイトル名でも<br>
+Valkyrie Checkを行うように。(v1.0.0ではどちらか片方でタイトル名を取得出来ていればそれを使用していた)</li>
+<li>Valkyrie Checkにタイトル名の比較を追加。(比較に使用するタイトル名は検索用に短くする前の物)</li>
+</ul>
+v1.0.0 - 2019/12/01
+<ul><li>公開</li></ul>
+</div>
+
+</div>
+</body>
+</html>
